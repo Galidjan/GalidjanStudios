@@ -1,0 +1,44 @@
+
+:root{
+  --bg:#0A0A0A; --panel:#101010; --border:#202020;
+  --fg:#EDEDED; --muted:#9AA0A6; --gold:#C6A15B;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--fg);
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial}
+#bg-grid{
+  position:fixed;inset:0;
+  background:
+    radial-gradient(60vw 60vh at 10% -10%, rgba(198,161,91,.12), transparent 60%),
+    radial-gradient(60vw 60vh at 110% 110%, rgba(198,161,91,.08), transparent 60%),
+    linear-gradient(transparent 0, transparent calc(100% - 100px), rgba(198,161,91,.06) 100%);
+  pointer-events:none;
+  z-index:-1;
+  animation:pulse 8s ease-in-out infinite;
+}
+@keyframes pulse{0%,100%{opacity:.8}50%{opacity:1}}
+.topbar{
+  position:sticky;top:0;display:flex;align-items:center;justify-content:space-between;
+  gap:12px;padding:14px 18px;background:rgba(10,10,10,.8);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--border)
+}
+.brand{display:flex;align-items:center;gap:12px;font-weight:700;letter-spacing:.3px}
+.logo{width:30px;height:30px}
+.nav a{color:var(--muted);text-decoration:none;margin:0 6px;padding:8px 10px;border-radius:8px}
+.nav a.active,.nav a:hover{color:var(--fg);background:#171717}
+.install{background:var(--gold);color:#0A0A0A;border:0;border-radius:10px;padding:10px 14px;font-weight:800}
+#app{padding:22px}
+.card{
+  border:1px solid var(--border);background:var(--panel);border-radius:16px;
+  padding:24px;max-width:1040px;margin:0 auto 22px;box-shadow:0 10px 40px rgba(0,0,0,.35)
+}
+.hero{text-align:center}
+.badge{display:inline-block;border:1px solid var(--gold);color:var(--gold);padding:6px 10px;border-radius:999px;font-size:12px;letter-spacing:.3px;margin-bottom:12px}
+.lead{color:var(--muted);margin:8px 0 16px}
+.gold{color:var(--gold)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:12px}
+.tile{border:1px solid var(--border);background:#0f0f0f;border-radius:12px;padding:16px}
+.view{display:none}.view.active{display:block}
+.footer{opacity:.65;text-align:center;padding:18px;border-top:1px solid var(--border)}
+.fade-in{animation:fade .6s ease both} @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
